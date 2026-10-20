@@ -2,92 +2,85 @@
 
 - **Họ và tên:** Cao Xuân Thành
 - **MSSV:** 125002837
-- **Tên đề tài Website:** School Camera Access — Website quản lý và phân quyền truy cập camera trường học cho phụ huynh
+- **Tên đề tài Website:** NOIR. — Curated Cinema Archive
 - **Công cụ AI đã sử dụng:** ChatGPT
 
-## 1. Yêu cầu ban đầu (System/Initial Prompt)
+## 1. Yêu cầu ban đầu
 
-> Xây dựng website một trang cho đề tài “School Camera Access”.
-> Website mô phỏng bài toán phụ huynh dùng chung tài khoản camera lớp nên khó thu hồi quyền riêng.
-> Yêu cầu dùng Semantic HTML5 gồm header, nav, main, section/article và footer;
-> CSS Variables cho màu sắc, font và spacing; Flexbox/Grid để responsive;
-> tích hợp Animate.css và AOS; có :hover và :focus tự viết.
-> Không thêm backend, database hoặc chức năng JavaScript nghiệp vụ ngoài phạm vi đề.
+> Thiết kế website chủ đề điện ảnh theo phong cách cao cấp, khác với landing page thông thường. Bài phải dùng Semantic HTML5, CSS Variables, Flexbox/Grid, Animate.css, AOS và hover/focus; giao diện cần đủ ấn tượng khi mở trực tiếp trên GitHub Pages.
 
-**Kết quả AI tạo ra:** Khung website gồm Hero, Bài toán, Chức năng, Camera mẫu,
-Phân quyền mẫu và Footer.
+**Kết quả ban đầu:** Có hai hướng thiết kế: một bản editorial hiện đại, thiên về typography/illustration; một bản cinema archive cổ điển, dùng ảnh thật, tông vàng và font serif.
 
-**Nhận xét & Tinh chỉnh của SV:** Bản đầu có thêm JavaScript tương tác cho lọc camera,
-toggle quyền và tìm kiếm. Sau khi đối chiếu lại đề, tôi yêu cầu bỏ toàn bộ JavaScript
-nghiệp vụ vì đề không có tiêu chí JavaScript; chỉ giữ đoạn khởi tạo AOS do thư viện
-AOS bắt buộc phải được tích hợp.
+**Nhận xét của SV:** Hai hướng đều có điểm mạnh nhưng chưa muốn chọn bỏ hẳn một hướng. Tôi yêu cầu AI phân tích rồi hợp nhất các điểm mạnh thay vì chỉ đổi màu hoặc sao chép nguyên một mẫu.
 
-## 2. Quá trình tinh chỉnh & Giải quyết sự cố (Iteration Iterations)
+## 2. Quá trình tinh chỉnh
 
-### Lần 1: Dựng khung Semantic HTML & CSS Variable
+### Lần 1 — Chọn visual direction cuối
 
-- **Prompt đã dùng:**
+- **Prompt:**
 
-> Kiểm tra cấu trúc HTML theo đúng Semantic HTML5. Hạn chế div vô nghĩa,
-> dùng header, nav, main, section, article, aside và footer đúng vai trò.
-> Tạo :root chứa CSS Variables cho color, font, spacing, radius và shadow.
+> Lấy bố cục điện ảnh mạnh, hero có chiều sâu, editorial statement và visual hierarchy của mẫu hiện đại; kết hợp film grain, ảnh thật, màu vàng cổ điển, typography sang trọng, poster archive, bento collections và membership của mẫu cinema archive. Không để giao diện giống bài tập sinh viên.
 
-- **Kết quả AI tạo ra:** Website có đủ các thẻ semantic chính; toàn bộ màu,
-spacing, radius và font được quản lý bằng CSS Variables.
+- **Kết quả:**
+  - Hero dùng ảnh điện ảnh toàn màn hình, overlay nhiều lớp, light beam và typography lớn.
+  - Giữ glass cards cho Premiere/Rating để hero có chiều sâu.
+  - Dùng palette đen/navy + antique gold/cream.
+  - Dùng Cinzel cho display, Cormorant Garamond cho chữ italic và Plus Jakarta Sans cho body.
 
-- **Nhận xét & Tinh chỉnh của SV:** Cấu trúc rõ ràng hơn và dễ giải thích;
-các biến CSS giúp giao diện nhất quán.
+### Lần 2 — Sửa lỗi hero bị chồng CTA và progress
 
-### Lần 2: Flexbox / Grid và Responsive
+- **Vấn đề:** Ở bản trước, CTA và chỉ số `01 / 04` nằm quá gần nhau nên khi chiều cao màn hình thấp chúng có cảm giác bị đè lên nhau.
 
-- **Prompt đã dùng:**
+- **Debug prompt:**
 
-> Dùng CSS Grid cho Hero, nhóm card và khu phân quyền; dùng Flexbox cho Header,
-> Footer và các hàng thông tin. Thêm breakpoint để mobile không bị tràn ngang.
+> Không vá bằng margin ngẫu nhiên. Tách hero thành hai hàng độc lập: nội dung chính và hero-bottom. Hero phải tự tăng chiều cao khi nội dung nhiều; progress bar luôn ở hàng dưới và không thể chồng lên CTA.
 
-- **Kết quả AI tạo ra:** Hero và permission dùng Grid 2 cột; các card dùng Grid 3 cột;
-Header/Footer dùng Flexbox; mobile chuyển về một cột.
+- **Kết quả:** Hero dùng CSS Grid `grid-template-rows: 1fr auto`; CTA nằm trong `hero-main`, còn pagination/scroll prompt nằm trong `hero-bottom` độc lập.
 
-- **Nhận xét & Tinh chỉnh của SV:** Grid phù hợp bố cục nhiều cột,
-Flexbox phù hợp các hàng ngang.
+### Lần 3 — Semantic HTML5
 
-### Lần 3: Animate.css và AOS
+- **Prompt:**
 
-- **Prompt đã dùng:**
+> Audit HTML: dùng header/nav/main/section/article/aside/footer đúng ngữ nghĩa. Poster phim, thẻ Premiere/Rating và membership card phải là thành phần semantic hợp lý; hạn chế div chỉ để layout.
 
-> Tích hợp Animate.css và AOS qua CDN. Animate.css chỉ dùng cho Hero khi tải trang;
-> AOS dùng cho section và card khi cuộn. Hiệu ứng vừa đủ, không lạm dụng.
+- **Kết quả:** Header/nav/main/section/article/aside/footer được sử dụng xuyên suốt; các vùng độc lập có heading/aria phù hợp.
 
-- **Kết quả AI tạo ra:** Hero dùng `animate__fadeInLeft` và `animate__fadeInRight`;
-section dùng `data-aos="fade-up"`; camera card dùng `data-aos="zoom-in"`.
+### Lần 4 — CSS Variables + Flexbox/Grid
 
-- **Thách thức gặp phải:** AOS cần được khởi tạo sau khi tải thư viện.
+- **Prompt:**
 
-- **Cách sửa prompt (Debug prompt):**
+> Gom màu, typography, spacing, radius, transition vào CSS Variables. Grid dùng cho hero, archive, feature, bento và membership; Flexbox dùng cho navigation, CTA, meta và footer. Không hard-code style rời rạc nếu có thể dùng token chung.
 
-> Giữ JavaScript ở mức tối thiểu chỉ để `AOS.init()` hoạt động.
-> Không tạo file JavaScript riêng và không thêm logic nghiệp vụ vì đề không yêu cầu JavaScript.
+- **Kết quả:** Toàn site dùng một design system gồm `--bg-deep`, `--gold`, `--cream`, `--text-main`, `--line`, font variables, gutter, radius và transition.
 
-### Lần 4: Hover / Focus và độ mượt
+### Lần 5 — Animate.css + AOS
 
-- **Prompt đã dùng:**
+- **Prompt:**
 
-> Tạo trạng thái :hover và :focus-visible rõ cho nút, link và card.
-> Dùng transform cho chuyển động nhỏ, transition khoảng 220ms,
-> tránh hiệu ứng quá mạnh hoặc lạm dụng animation.
+> Dùng Animate.css cho phần xuất hiện đầu tiên của header/hero. Dùng AOS cho các section/poster/bento/membership khi cuộn. Giữ hiệu ứng vừa phải, không animate mọi phần tử.
 
-- **Kết quả AI tạo ra:** Card nâng nhẹ khi hover/focus, nút đổi màu và dịch nhẹ,
-keyboard focus có outline rõ.
+- **Kết quả:** Header/hero dùng Animate.css; archive, manifesto, feature, bento và membership dùng AOS. AOS chạy một lần với duration 900ms.
 
-## 3. Đánh giá cá nhân về quá trình Vibe Coding
+### Lần 6 — Hover/Focus + cảm giác thương mại
 
-### AI đã giúp bạn tiết kiệm thời gian ở phần nào nhất?
+- **Prompt:**
 
-AI giúp dựng nhanh khung Semantic HTML, hệ CSS Variables, Flexbox/Grid,
-responsive và tích hợp thư viện hiệu ứng.
+> Làm hover/focus rõ cho nav, button, poster, bento và link. Poster phải có zoom ảnh nhẹ + overlay “OPEN FILM”, nhưng không làm rối mắt. Keyboard focus phải nhìn thấy được.
 
-### Bài học rút ra khi đặt câu hỏi (Prompt) cho AI trong thiết kế web?
+- **Kết quả:** Poster có transform/overlay, nav có underline transition, button có lift/shadow, bento zoom ảnh; `:focus-visible` có outline màu gold.
 
-Cần đọc kỹ đề và giới hạn phạm vi rõ ràng. Nếu prompt không nói những gì không cần làm,
-AI có thể tự thêm chức năng vượt yêu cầu. Việc đối chiếu rubric sau mỗi vòng giúp phát hiện
-phần dư thừa và yêu cầu AI tinh chỉnh đúng mục tiêu bài thi.
+### Lần 7 — Responsive
+
+- **Prompt:**
+
+> Desktop ưu tiên cinematic layout. Tablet giảm navigation, mobile dùng details/summary để mở menu mà không cần JavaScript nghiệp vụ. Hero, poster grid, bento và membership phải giảm cột hợp lý và không tràn ngang.
+
+- **Kết quả:** Có breakpoint 1180px, 900px và 640px; mobile menu hoạt động không cần JS riêng.
+
+## 3. Đánh giá cá nhân
+
+### AI giúp tiết kiệm thời gian ở đâu?
+AI giúp dựng nhanh các layout Grid/Flexbox, tạo hệ CSS Variables, thử nhiều visual direction và sửa nhanh các lỗi spacing/responsive. Phần cần con người quyết định nhiều nhất là chọn phong cách, loại bỏ chi tiết làm giao diện giống template và đánh giá xem visual hierarchy đã đủ thuyết phục chưa.
+
+### Bài học khi prompt AI trong thiết kế web
+Yêu cầu “làm đẹp” là chưa đủ. Prompt hiệu quả phải nói rõ loại sản phẩm, mood, typography, hierarchy, phần nào cần giữ, phần nào cần bỏ, kỹ thuật bắt buộc và cả những lỗi cụ thể quan sát được. Việc so sánh hai phương án rồi yêu cầu hợp nhất theo tiêu chí rõ ràng cho kết quả tốt hơn chọn một mẫu và chỉnh màu.
