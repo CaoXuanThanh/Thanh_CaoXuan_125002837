@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="School Camera Access - website mô phỏng quản lý và phân quyền truy cập camera trường học cho phụ huynh.">
+  <title>School Camera Access</title>
+
+  <!-- Animate.css - thư viện hiệu ứng theo yêu cầu đề -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  >
+
+  <!-- AOS CSS - hiệu ứng khi cuộn theo yêu cầu đề -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+  >
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Bỏ qua điều hướng</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#home" aria-label="School Camera Access - Trang chủ">
+        <span class="brand-mark" aria-hidden="true">SC</span>
+        <span class="brand-text">
+          <strong>School Camera Access</strong>
+          <small>Parent Camera Permission</small>
+        </span>
+      </a>
+
+      <nav class="main-nav" aria-label="Điều hướng chính">
+        <a href="#overview">Tổng quan</a>
+        <a href="#features">Chức năng</a>
+        <a href="#cameras">Camera</a>
+        <a href="#permissions">Phân quyền</a>
+      </nav>
+
+      <a class="btn btn-outline" href="#permissions">Xem mô phỏng</a>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <article class="hero-copy animate__animated animate__fadeInLeft">
+          <span class="eyebrow">Đề tài website · Thiết kế Web</span>
+          <h1>Quản lý quyền xem camera <span>rõ ràng hơn</span> cho phụ huynh.</h1>
+          <p>
+            Website mô phỏng cách cấp và thu hồi quyền xem camera theo từng phụ huynh,
+            thay cho việc cả lớp cùng sử dụng chung một tài khoản.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#permissions">Xem mô phỏng phân quyền</a>
+            <a class="text-link" href="#overview">Tìm hiểu bài toán →</a>
+          </div>
+
+          <ul class="hero-stats" aria-label="Thông tin mô phỏng">
+            <li><strong>03</strong><span>Camera mẫu</span></li>
+            <li><strong>02</strong><span>Được phép xem</span></li>
+            <li><strong>01</strong><span>Không có quyền</span></li>
+          </ul>
+        </article>
+
+        <aside class="hero-panel animate__animated animate__fadeInRight" aria-label="Thẻ thông tin phụ huynh mẫu">
+          <div class="profile-line">
+            <div class="avatar" aria-hidden="true">NB</div>
+            <div>
+              <p class="label">Phụ huynh mẫu</p>
+              <h2>Nguyễn Văn Bình</h2>
+              <p>Học sinh: Nguyễn Minh An · Lớp 3A</p>
+            </div>
+          </div>
+
+          <div class="mini-camera">
+            <div class="camera-art camera-art-blue" aria-hidden="true">
+              <span>LIVE</span>
+            </div>
+            <div>
+              <p class="label">Được cấp quyền</p>
+              <h3>Lớp 3A</h3>
+              <p>CAM-3A-01 · Online</p>
+            </div>
+            <span class="access-dot access-on" title="Được phép xem"></span>
+          </div>
+
+          <div class="mini-camera">
+            <div class="camera-art camera-art-green" aria-hidden="true">
+              <span>LIVE</span>
+            </div>
+            <div>
+              <p class="label">Được cấp quyền</p>
+              <h3>Sân chơi</h3>
+              <p>CAM-YARD-02 · Online</p>
+            </div>
+            <span class="access-dot access-on" title="Được phép xem"></span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="overview" data-aos="fade-up">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">01 · Bài toán</span>
+          <h2>Vì sao cần quản lý quyền truy cập?</h2>
+          <p>
+            Khi nhiều phụ huynh dùng chung một tài khoản camera, việc thu hồi riêng quyền
+            của một gia đình trở nên khó kiểm soát. Website trình bày hướng tiếp cận
+            phân quyền theo từng phụ huynh và học sinh.
+          </p>
+        </div>
+
+        <div class="problem-grid">
+          <article class="info-card" tabindex="0">
+            <span class="card-number">01</span>
+            <h3>Dùng chung tài khoản</h3>
+            <p>Một tài khoản có thể được chia sẻ cho nhiều phụ huynh trong cùng lớp.</p>
+          </article>
+
+          <article class="info-card" tabindex="0">
+            <span class="card-number">02</span>
+            <h3>Khó thu hồi riêng</h3>
+            <p>Khi học sinh nghỉ học, quyền xem của riêng gia đình đó khó được tách biệt.</p>
+          </article>
+
+          <article class="info-card" tabindex="0">
+            <span class="card-number">03</span>
+            <h3>Phân quyền cá nhân</h3>
+            <p>Mỗi phụ huynh chỉ nhìn thấy camera đã được cấp quyền cho tài khoản của mình.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="features" data-aos="fade-up">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">02 · Chức năng</span>
+          <h2>Những gì giao diện mô phỏng</h2>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card" data-aos="fade-up">
+            <span class="feature-icon" aria-hidden="true">01</span>
+            <h3>Xem camera được cấp</h3>
+            <p>Phụ huynh chỉ thấy các camera mà tài khoản của mình được phép truy cập.</p>
+          </article>
+
+          <article class="feature-card" data-aos="fade-up" data-aos-delay="100">
+            <span class="feature-icon" aria-hidden="true">02</span>
+            <h3>Kiểm tra trạng thái</h3>
+            <p>Giao diện hiển thị tên camera, mã camera và trạng thái online hoặc bị chặn.</p>
+          </article>
+
+          <article class="feature-card" data-aos="fade-up" data-aos-delay="200">
+            <span class="feature-icon" aria-hidden="true">03</span>
+            <h3>Quản lý quyền</h3>
+            <p>Khu vực quản trị mô phỏng quyền cho phép hoặc không cho phép xem từng camera.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="cameras" data-aos="fade-up">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">03 · Camera</span>
+          <h2>Danh sách camera mẫu</h2>
+          <p>Các thẻ dưới đây chỉ là dữ liệu giao diện, không kết nối camera hoặc stream thật.</p>
+        </div>
+
+        <div class="camera-grid">
+          <article class="camera-card" tabindex="0" data-aos="zoom-in">
+            <div class="camera-preview preview-blue">
+              <span class="live-badge">LIVE</span>
+              <span class="camera-code">CAM-3A-01</span>
+            </div>
+            <div class="camera-meta">
+              <div>
+                <h3>Lớp 3A</h3>
+                <p>Tầng 2 · Khu A</p>
+              </div>
+              <span class="status status-online">Online</span>
+            </div>
+          </article>
+
+          <article class="camera-card" tabindex="0" data-aos="zoom-in" data-aos-delay="100">
+            <div class="camera-preview preview-green">
+              <span class="live-badge">LIVE</span>
+              <span class="camera-code">CAM-YARD-02</span>
+            </div>
+            <div class="camera-meta">
+              <div>
+                <h3>Sân chơi</h3>
+                <p>Khu trung tâm</p>
+              </div>
+              <span class="status status-online">Online</span>
+            </div>
+          </article>
+
+          <article class="camera-card" tabindex="0" data-aos="zoom-in" data-aos-delay="200">
+            <div class="camera-preview preview-gray">
+              <span class="blocked-badge">NO ACCESS</span>
+              <span class="camera-code">CAM-3B-03</span>
+            </div>
+            <div class="camera-meta">
+              <div>
+                <h3>Lớp 3B</h3>
+                <p>Tầng 2 · Khu B</p>
+              </div>
+              <span class="status status-blocked">Bị chặn</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="permissions" data-aos="fade-up">
+      <div class="container permission-grid">
+        <article>
+          <div class="section-heading">
+            <span class="eyebrow">04 · Phân quyền</span>
+            <h2>Mô phỏng quyền theo từng phụ huynh</h2>
+            <p>
+              Phần này minh họa cách một hệ thống có thể trình bày quyền truy cập.
+              Đây chỉ là giao diện tĩnh phục vụ bài thi Frontend.
+            </p>
+          </div>
+
+          <div class="rule-list">
+            <p><strong>Cho phép:</strong> Lớp 3A, Sân chơi</p>
+            <p><strong>Không cho phép:</strong> Lớp 3B</p>
+            <p><strong>Học sinh:</strong> Nguyễn Minh An · Lớp 3A</p>
+          </div>
+        </article>
+
+        <aside class="permission-panel" aria-label="Bảng quyền truy cập mẫu">
+          <div class="student-card">
+            <div class="avatar" aria-hidden="true">NA</div>
+            <div>
+              <p class="label">Học sinh</p>
+              <h3>Nguyễn Minh An</h3>
+              <p>HS20260123 · Lớp 3A</p>
+            </div>
+          </div>
+
+          <ul class="permission-list">
+            <li>
+              <span><strong>Lớp 3A</strong><small>CAM-3A-01</small></span>
+              <span class="permission-tag allowed">Được xem</span>
+            </li>
+            <li>
+              <span><strong>Sân chơi</strong><small>CAM-YARD-02</small></span>
+              <span class="permission-tag allowed">Được xem</span>
+            </li>
+            <li>
+              <span><strong>Lớp 3B</strong><small>CAM-3B-03</small></span>
+              <span class="permission-tag denied">Không có quyền</span>
+            </li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>School Camera Access</strong>
+        <p>Frontend website cho học phần Thiết kế Web.</p>
+      </div>
+      <p>© 2026 · Cao Xuân Thành · MSSV: 125002837</p>
+    </div>
+  </footer>
+
+  <!-- AOS JavaScript: chỉ dùng để khởi tạo thư viện AOS mà đề bắt buộc tích hợp -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 700,
+      easing: "ease-out-cubic",
+      once: true,
+      offset: 60
+    });
+  </script>
+</body>
+</html>
